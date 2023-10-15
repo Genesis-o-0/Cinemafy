@@ -1,0 +1,9 @@
+.bg-color {
+  background-color: #f3f1f1;
+}
+.input-styling {
+  outline: 0;
+}
+.bg-yellow:hover {
+  background-color: #ffe353;
+}

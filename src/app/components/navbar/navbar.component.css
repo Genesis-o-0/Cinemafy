@@ -1,0 +1,7 @@
+.heart-icon {
+  color: #292d32;
+  transition: 0.5s all;
+}
+.heart-icon:hover {
+  color: #292d32be;
+}
