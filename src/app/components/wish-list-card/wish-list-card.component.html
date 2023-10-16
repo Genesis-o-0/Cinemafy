@@ -1,12 +1,20 @@
-<div class="movie rounded-4 px-3 py-4 d-flex flex-column flex-sm-row text-center text-sm-start gap-3 align-items-center">
+<div
+    class="movie rounded-4 px-3 py-4 d-flex flex-column flex-sm-row text-center text-sm-start gap-3 align-items-center">
     <div>
         <img width="200px" class="rounded-4" [src]="imgBaseUrl + movie.poster_path" alt="">
     </div>
     <div class="details">
-        <h2 class="fw-semibold">{{movie.title}}</h2>
+        <div class="d-flex justify-content-between">
+            <h2 class="fw-semibold overflow-hidden">{{movie.title}}</h2>
+            <button title="fav" class="btn rounded-circle" (click)="addToWatchList()">
+                <fa-icon *ngIf="!favorite" class="fs-4 heart-empty" [icon]="faHeart"></fa-icon>
+                <fa-icon *ngIf="favorite" class="fs-4" [icon]="faHeart"></fa-icon>
+            </button>
+        </div>
         <h6 class="movie-date fw-400">Sep 25, 2017</h6>
         <div class="my-2">
-            <fa-icon [icon]="faStar" *ngFor="let star of [1, 2, 3, 4, 5]" class="text-dark rounded-circle fs-5 me-2"></fa-icon>
+            <fa-icon [icon]="faStar" *ngFor="let star of [1, 2, 3, 4, 5]" class="text-dark rounded-circle fs-5 me-2">
+            </fa-icon>
         </div>
         <p class="desc">
             Natasha Romanoff, also known as Black Widow, confronts the darker parts of her ledger when a

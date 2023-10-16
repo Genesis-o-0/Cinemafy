@@ -2,15 +2,16 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ApiResponse } from '../interfaces/api-response';
 import { MovieDetails } from '../interfaces/movie-details';
-import { Movie } from '../interfaces/movie';
+
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class GetMoviesService {
-  private arrOfSearchedMovies = new BehaviorSubject<Array<Movie>>([]);
   private paginationNumber = new BehaviorSubject<number>(1)
+  private arrOfSearchedMovies = new BehaviorSubject<Array<MovieDetails>>([]);
+
   // arrOfSearchedMovies: Movie[] = []
   baseUrl: string;
 
@@ -32,7 +33,7 @@ export class GetMoviesService {
   getArrOfSearchedMovies() {
     return this.arrOfSearchedMovies.asObservable();
   }
-  setArrOfSearchedMovies(newArr: Movie[]) {
+  setArrOfSearchedMovies(newArr: MovieDetails[]) {
     this.arrOfSearchedMovies.next(newArr);
   }
 
@@ -76,5 +77,17 @@ export class GetMoviesService {
           page: pageNumber
         }
       })
+
+  // Get recommendation based on a movie
+  getRecommendations(movieId: string) {
+    return this.http.get<ApiResponse>(
+      `https://api.themoviedb.org/3/movie/${movieId}/recommendations`,
+      {
+        params: {
+          api_key: '0baaacf727870157b7b93c6e641df649',
+        },
+      }
+    );
+
   }
 }

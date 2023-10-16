@@ -1,8 +1,9 @@
-import { Movie } from "./movie";
+import { MovieDetails } from "./movie";
+
 
 export interface ApiResponse {
     page: number,
-    results: Movie[],
+    results: MovieDetails[],
     total_pages: number,
     total_results: number
 }
