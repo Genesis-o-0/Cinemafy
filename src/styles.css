@@ -2,3 +2,6 @@
 .bg-yellow {
   background-color: #ffe353;
 }
+a {
+  cursor: pointer;
+}

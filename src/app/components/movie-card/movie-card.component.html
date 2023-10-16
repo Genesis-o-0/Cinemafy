@@ -1,5 +1,5 @@
 <div class="card border-0">
-  <a href="#">
+  <a class="">
     <img
       src="https://image.tmdb.org/t/p/w500/{{ movieData.poster_path }}"
       class="card-img-top rounded-3"
@@ -12,16 +12,18 @@
     <span class="text-light lead">75 <sup>%</sup></span>
   </div> -->
   <div class="card-body">
-    <h5 class="card-title fw-bold">{{ movieData.title }}</h5>
+    <h5 class="card-title fw-bold">
+      {{ movieData.title }}
+    </h5>
     <div class="pt-2">
-      <!-- [ngClass]="{
-                'text-warning': product && product.rating > star,
-                'text-secondary': product && product.rating < star
-              }" -->
       <fa-icon
         [icon]="faStar"
         *ngFor="let star of [1, 2, 3, 4, 5]"
-        class="rounded-circle me-2"
+        [ngClass]="{
+          'text-warning': movieData && movieData.vote_average / 2 > star,
+          'star-empty': movieData && movieData.vote_average / 2 < star
+        }"
+        class="rounded-circle me-2 fs-5"
       ></fa-icon>
     </div>
     <div class="d-flex justify-content-between align-items-center">
@@ -29,7 +31,7 @@
         {{ movieData.release_date | date }}
       </p>
       <button title="fav" class="btn rounded-circle">
-        <fa-icon class="fs-5 text-warning" [icon]="faHeart"></fa-icon>
+        <fa-icon class="fs-4 heart-empty" [icon]="faHeart"></fa-icon>
       </button>
     </div>
   </div>
