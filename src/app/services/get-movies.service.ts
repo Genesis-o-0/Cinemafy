@@ -5,25 +5,23 @@ import { MovieDetails } from '../interfaces/movie-details';
 import { Movie } from '../interfaces/movie';
 import { BehaviorSubject } from 'rxjs';
 
-
-
 @Injectable({
   providedIn: 'root',
 })
 export class GetMoviesService {
-  private arrOfSearchedMovies = new BehaviorSubject<Array<Movie>>([])
+  private arrOfSearchedMovies = new BehaviorSubject<Array<Movie>>([]);
   // arrOfSearchedMovies: Movie[] = []
-  baseUrl: string
+  baseUrl: string;
 
   constructor(private http: HttpClient) {
-    this.baseUrl = "https://api.themoviedb.org/3/movie/popular"
+    this.baseUrl = 'https://api.themoviedb.org/3/movie/popular';
   }
   // *****************
   getArrOfSearchedMovies() {
-    return this.arrOfSearchedMovies.asObservable()
+    return this.arrOfSearchedMovies.asObservable();
   }
   setArrOfSearchedMovies(newArr: Movie[]) {
-    this.arrOfSearchedMovies.next(newArr)
+    this.arrOfSearchedMovies.next(newArr);
   }
 
   getMoviesList() {
@@ -33,31 +31,27 @@ export class GetMoviesService {
       },
     });
   }
+
   getMovieById(movieId: string) {
     return this.http.get<MovieDetails>(
       `https://api.themoviedb.org/3/movie/${movieId}`,
       {
         params: {
-          api_key: "0baaacf727870157b7b93c6e641df649"
-        }
-      });
-  }
-  getMovieById(movieId: number) {
-    return this.http.get<Movie>(`https://api.themoviedb.org/3/movie/${movieId}`,
-      {
-        params: {
-          api_key: "0baaacf727870157b7b93c6e641df649"
-        }
-      })
+          api_key: '0baaacf727870157b7b93c6e641df649',
+        },
+      }
+    );
   }
   //  Search For Movies
   getMovieFromSearch(movieName: string) {
-    return this.http.get<ApiResponse>(`https://api.themoviedb.org/3/search/movie`,
+    return this.http.get<ApiResponse>(
+      `https://api.themoviedb.org/3/search/movie`,
       {
         params: {
-          api_key: "0baaacf727870157b7b93c6e641df649",
-          query: movieName
-        }
-      })
+          api_key: '0baaacf727870157b7b93c6e641df649',
+          query: movieName,
+        },
+      }
+    );
   }
 }
