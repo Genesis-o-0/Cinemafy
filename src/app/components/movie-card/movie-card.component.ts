@@ -16,6 +16,5 @@ export class MovieCardComponent {
   @Input() movieData !: Movie
   ngOnInit(): void {
     console.log(this.movieData);
-
   }
 }
