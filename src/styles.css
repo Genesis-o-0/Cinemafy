@@ -5,3 +5,9 @@
 a {
   cursor: pointer;
 }
+.star-empty {
+  color: rgba(219, 219, 204, 0.534);
+}
+.heart-empty {
+  color: rgba(219, 219, 204, 0.708);
+}
