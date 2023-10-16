@@ -26,7 +26,7 @@
         </div>
       </div>
     </div>
-    <div class="row py-5 g-4">
+    <div id="m" class="row py-5 g-4">
       <div
         *ngFor="let movie of arrOfMoviesList"
         class="col-sm-12 col-md-6 col-lg-3"
@@ -34,6 +34,65 @@
         <div>
           <app-movie-card [movieData]="movie"></app-movie-card>
         </div>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-sm-12 col-md-6 col-lg-6">
+        <nav aria-label="...">
+          <ul class="pagination d-flex justify-content-center">
+            <li class="page-item">
+              <a class="text-decoration-none" href="#m">
+                <input
+                  (click)="previousPaginate()"
+                  type="button"
+                  value="Previous"
+                  class="page-link text-dark"
+                />
+              </a>
+            </li>
+            <!-- <li class="page-item text-warning">
+              <a href="#m">
+                <input
+                  type="button"
+                  class="page-link"
+                  value="1"
+                  (click)="paginationFunc($event)"
+                />
+              </a>
+            </li>
+            <li class="page-item">
+              <a href="#m">
+                <input
+                  type="button"
+                  class="page-link"
+                  value="2"
+                  (click)="paginationFunc($event)"
+                />
+              </a>
+            </li>
+            <li class="page-item">
+              <a href="#m">
+                <input
+                  type="button"
+                  class="page-link"
+                  value="3"
+                  (click)="paginationFunc($event)"
+                />
+              </a>
+            </li> -->
+
+            <li class="page-item">
+              <a href="#m" class="text-decoration-none text-dark">
+                <input
+                  type="button"
+                  value="Next"
+                  class="page-link text-dark"
+                  (click)="nextPaginate()"
+                />
+              </a>
+            </li>
+          </ul>
+        </nav>
       </div>
     </div>
   </div>
