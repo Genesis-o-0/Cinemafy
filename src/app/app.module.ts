@@ -9,7 +9,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FooterComponent } from './components/footer/footer.component';
 import { HttpClientModule } from "@angular/common/http";
-import { MovieDetailsComponent } from './components/movie-details/movie-details.component'
+import { MovieDetailsComponent } from './components/movie-details/movie-details.component';
+import { WishListComponent } from './components/wish-list/wish-list.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,7 +18,8 @@ import { MovieDetailsComponent } from './components/movie-details/movie-details.
     MovieCardComponent,
     NavbarComponent,
     FooterComponent,
-    MovieDetailsComponent
+    MovieDetailsComponent,
+    WishListComponent
   ],
   imports: [
     BrowserModule,
