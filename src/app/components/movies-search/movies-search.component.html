@@ -1,7 +1,7 @@
 <section class="movie-list py-5 height-container">
   <div class="container">
-    <div class="row p-5 bg-color">
-      <h1 class="display-5 fw-medium mb-5">Welcome to our movie app</h1>
+    <div class="row p-5 bg-color text-center">
+      <h1 class="display-5 fw-medium mb-5">Welcome to Search</h1>
       <p class="fw-medium">
         Millions of movies, TV shows and people to discover. Explore now.
       </p>
@@ -9,7 +9,7 @@
         <div class="row">
           <div class="col-sm-12 col-md-9 col-lg-11">
             <input
-              [(ngModel)]="searchInputValue"
+              [(ngModel)]="searchInputVal"
               class="rounded input-styling border-0 py-2 px-3 w-100 mb-3 mb-md-0"
               type="text"
               placeholder="Search and explore...."
@@ -17,8 +17,8 @@
           </div>
           <div class="col-sm-12 col-md-3 col-lg-1">
             <button
-              (click)="searchFunc()"
-              class="rounded px-4 py-2 bg-yellow border-0"
+              (click)="searchMovie()"
+              class="btn rounded px-4 py-2 bg-yellow"
             >
               Search
             </button>
@@ -26,15 +26,24 @@
         </div>
       </div>
     </div>
-    <div class="row py-5 g-4">
+    <div
+      *ngIf="arrOfSearchedMoviesFromService.length != 0"
+      class="row py-5 g-4"
+    >
       <div
-        *ngFor="let movie of arrOfMoviesList"
+        *ngFor="let movie of arrOfSearchedMoviesFromService"
         class="col-sm-12 col-md-6 col-lg-3"
       >
         <div>
           <app-movie-card [movieData]="movie"></app-movie-card>
         </div>
       </div>
+    </div>
+    <div
+      *ngIf="arrOfSearchedMoviesFromService.length == 0"
+      class="row py-5 g-4 text-center"
+    >
+      <h1>Hello</h1>
     </div>
   </div>
 </section>
