@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { faHeart } from "@fortawesome/free-regular-svg-icons"
 import { faStar } from "@fortawesome/free-solid-svg-icons"
 import { Movie } from 'src/app/interfaces/movie';
@@ -14,11 +15,22 @@ export class MoviesListComponent {
   faStar = faStar
   // Properties
   arrOfMoviesList: Movie[]
-  constructor(private movieList: GetMoviesService) {
+  searchInputValue: string = ""
+  constructor(private movieList: GetMoviesService, private router: Router) {
     this.arrOfMoviesList = []
   }
   ngOnInit(): void {
     this.movieList.getMoviesList().subscribe((data) => this.arrOfMoviesList = data.results
     )
+  }
+
+  searchFunc() {
+    if (this.searchInputValue.length != 0 && this.searchInputValue.trim()) {
+      this.movieList.getMovieFromSearch(this.searchInputValue).subscribe((data) => {
+        this.movieList.setArrOfSearchedMovies(data.results)
+      })
+      this.router.navigate(['/movies-search'])
+    }
+
   }
 }

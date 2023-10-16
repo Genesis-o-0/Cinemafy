@@ -4,17 +4,19 @@ import { MoviesListComponent } from './components/movies-list/movies-list.compon
 import { MovieDetailsComponent } from './components/movie-details/movie-details.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { WishListComponent } from './components/wish-list/wish-list.component';
+import { MoviesSearchComponent } from './components/movies-search/movies-search.component';
 
 const routes: Routes = [
   { path: '', component: MoviesListComponent },
   { path: 'movie-details/:id', component: MovieDetailsComponent },
-  { path: 'wishlist', component: WishListComponent},
+  { path: 'movies-search', component: MoviesSearchComponent },
+  { path: 'wishlist', component: WishListComponent },
   { path: '**', component: NotFoundComponent },
-  
+
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

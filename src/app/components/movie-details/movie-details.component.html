@@ -1,15 +1,16 @@
-<div class="container pt-5">
-  <div class="d-flex flex-column flex-lg-row">
-    <div class="movie-img w-100" style="width: 18rem">
-      <img
-        src="../../../assets/images/image.jpg"
-        alt="test image"
-        class="card-img-top rounded h-100"
-      />
+<div class="container pt-5" *ngIf="movie">
+  <div class="row flex-row flex-lg-row">
+    <div class="movie-img col-12 col-lg-4">
+      <a [href]="'https://www.imdb.com/title/' + movie.imdb_id" target="_blank"
+        ><img
+          src="https://image.tmdb.org/t/p/w500/{{ movie.poster_path }}"
+          alt="test image"
+          class="card-img-top rounded"
+      /></a>
     </div>
-    <div class="movie-info ps-4 pt-3">
-      <h3 class="fw-bold fs-3">Nowhere <span>(2023)</span></h3>
-      <p class="text-body-tertiary date">09/29/2023</p>
+    <div class="movie-info ps-4 pt-3 col-12 col-lg-8">
+      <h3 class="fw-bold fs-3">{{ movie.original_title }}</h3>
+      <p class="text-body-tertiary date">{{ movie.release_date }}</p>
       <div class="rating d-flex align-items-center justify-content-start">
         <svg viewBox="0 0 36 36" class="circular-chart orange">
           <path
@@ -28,34 +29,48 @@
           <text x="18" y="20.35" class="percentage">{{ actualRate }}%</text>
         </svg>
         <span class="lead fs-6"
-          ><fa-icon [icon]="faUser" class="me-2"></fa-icon>9288</span
+          ><fa-icon [icon]="faUser" class="me-2"></fa-icon
+          >{{ movie.vote_count }}</span
         >
       </div>
       <p class="description pt-3 fs-4">
-        A young pregnant woman named Mia escapes from a country at war by hiding
-        in a maritime container aboard a cargo ship. After a violent storm, Mia
-        gives birth to the child while lost at sea, where she must fight to
-        survive.
+        {{ movie.overview }}
       </p>
       <div class="genre d-flex mb-1 mb-md-0">
-        <span class="badge rounded-pill text-bg-warning me-3">Drama </span>
-        <span class="badge rounded-pill text-bg-warning">Thriller</span>
+        <span
+          class="badge rounded-pill text-bg-warning me-3"
+          *ngFor="let genre of movie.genres"
+          >{{ genre.name }}</span
+        >
       </div>
       <div class="duration-language d-flex pt-3 flex-column flex-md-row">
         <div class="duration me-5 mb-1 mb-md-0">
           <h6>
-            <span class="fw-bold">Duration:</span
-            ><span class="small"> 134 Min.</span>
+            <span class="fw-bold">Duration: </span
+            ><span class="small"> {{ movie.runtime }} Min.</span>
           </h6>
         </div>
         <div class="language">
           <h6>
-            <span class="fw-bold">Languages:</span>
-            <span class="small"> English</span>
+            <span class="fw-bold">Languages: </span>
+            <span
+              class="small me-2"
+              *ngFor="let lang of movie.spoken_languages"
+              >{{ lang.english_name }}</span
+            >
           </h6>
         </div>
       </div>
-      <div class="studio"></div>
+      <div class="studio row flex-row pt-3 align-items-center">
+        <ng-container *ngFor="let logo of movie.production_companies">
+          <img
+            class="me-4 col-4 col-md-2"
+            *ngIf="logo.logo_path"
+            [src]="'https://image.tmdb.org/t/p/w500/' + logo.logo_path"
+            alt=""
+          />
+        </ng-container>
+      </div>
     </div>
   </div>
   <hr />
@@ -64,12 +79,7 @@
     <div class="recommendation row row-cols-1 row-cols-md-2 row-cols-lg-4">
       <div class="col mb-4">
         <div class="card">
-          <a href="#"
-            ><img
-              src="../../../assets/images/image.jpg"
-              class="card-img-top"
-              alt="..."
-          /></a>
+          <a href="#"><img src="" class="card-img-top" alt="..." /></a>
           <div class="card-body">
             <div class="d-flex align-items-center justify-content-between">
               <h6 class="fw-bold mb-0">Nowhere</h6>
@@ -99,12 +109,7 @@
       </div>
       <div class="col mb-4">
         <div class="card">
-          <a href="#"
-            ><img
-              src="../../../assets/images/image.jpg"
-              class="card-img-top"
-              alt="..."
-          /></a>
+          <a href="#"><img src="" class="card-img-top" alt="..." /></a>
           <div class="card-body">
             <div class="d-flex align-items-center justify-content-between">
               <h6 class="fw-bold mb-0">Nowhere</h6>
@@ -132,12 +137,7 @@
       </div>
       <div class="col mb-4">
         <div class="card">
-          <a href="#"
-            ><img
-              src="../../../assets/images/image.jpg"
-              class="card-img-top"
-              alt="..."
-          /></a>
+          <a href="#"><img src="" class="card-img-top" alt="..." /></a>
           <div class="card-body">
             <div class="d-flex align-items-center justify-content-between">
               <h6 class="fw-bold mb-0">Nowhere</h6>
@@ -165,12 +165,7 @@
       </div>
       <div class="col mb-4">
         <div class="card">
-          <a href="#"
-            ><img
-              src="../../../assets/images/image.jpg"
-              class="card-img-top"
-              alt="..."
-          /></a>
+          <a href="#"><img src="" class="card-img-top" alt="..." /></a>
           <div class="card-body">
             <div class="d-flex align-items-center justify-content-between">
               <h6 class="fw-bold mb-0">Nowhere</h6>
