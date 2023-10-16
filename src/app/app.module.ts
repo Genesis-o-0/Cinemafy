@@ -9,10 +9,10 @@ import { MoviesListComponent } from './components/movies-list/movies-list.compon
 import { MovieCardComponent } from './components/movie-card/movie-card.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { HttpClientModule } from "@angular/common/http";
 import { MovieDetailsComponent } from './components/movie-details/movie-details.component';
-import { NotFoundComponent } from './components/not-found/not-found.component'
-
+import { WishListComponent } from './components/wish-list/wish-list.component'
+import { NotFoundComponent } from './components/not-found/not-found.component';
+import { WishListCardComponent } from './components/wish-list-card/wish-list-card.component'
 
 @NgModule({
   declarations: [
@@ -22,7 +22,9 @@ import { NotFoundComponent } from './components/not-found/not-found.component'
     NavbarComponent,
     FooterComponent,
     MovieDetailsComponent,
-    NotFoundComponent
+    WishListComponent,
+    NotFoundComponent,
+    WishListCardComponent
   ],
   imports: [
     BrowserModule,
