@@ -14,6 +14,7 @@ export class MoviesListComponent {
   faHeart = faHeart
   faStar = faStar
   // Properties
+  pageNumber !: number
   arrOfMoviesList: Movie[]
   searchInputValue: string = ""
   constructor(private movieList: GetMoviesService, private router: Router) {
@@ -31,6 +32,34 @@ export class MoviesListComponent {
       })
       this.router.navigate(['/movies-search'])
     }
+  }
 
+  paginationFunc(event: any) {
+    this.movieList.setPaginationNumber(event.target.value)
+    this.movieList.getMoviesPagination(event.target.value).subscribe((data) => {
+      this.arrOfMoviesList = data.results
+      console.log(data.results);
+    })
+  }
+  nextPaginate() {
+    this.movieList.getPaginationNumber().subscribe((pageNumberFromService) => {
+      this.pageNumber = pageNumberFromService
+    })
+    this.movieList.getMoviesPagination(this.pageNumber + 1).subscribe((data) => {
+      this.arrOfMoviesList = data.results
+      console.log(data);
+    })
+    this.movieList.setPaginationNumber(this.pageNumber + 1)
+  }
+  previousPaginate() {
+    this.movieList.getPaginationNumber().subscribe((data) => {
+      console.log(data);
+      this.pageNumber = data
+    })
+    this.movieList.getMoviesPagination(this.pageNumber - 1).subscribe((data) => {
+      this.arrOfMoviesList = data.results
+      console.log(data);
+    })
+    this.movieList.setPaginationNumber(this.pageNumber - 1)
   }
 }
