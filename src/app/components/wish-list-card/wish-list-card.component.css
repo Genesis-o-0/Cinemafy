@@ -1,0 +1,16 @@
+.movie h2 {
+    font-size: 48px;
+    line-height: 58px;
+    letter-spacing: 0em;
+}
+
+.movie-date {
+    color: #858585;
+    font-size: 0.75rem;
+}
+
+.desc {
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: 0em;
+}

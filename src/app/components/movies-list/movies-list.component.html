@@ -21,64 +21,12 @@
       </div>
     </div>
     <div class="row py-5 g-4">
-      <div class="col-sm-12 col-md-6 col-lg-3">
+      <div
+        *ngFor="let movie of arrOfMoviesList"
+        class="col-sm-12 col-md-6 col-lg-3"
+      >
         <div>
-          <app-movie-card></app-movie-card>
-        </div>
-      </div>
-      <div class="col-sm-12 col-md-6 col-lg-3">
-        <div>
-          <app-movie-card></app-movie-card>
-        </div>
-      </div>
-      <div class="col-sm-12 col-md-6 col-lg-3">
-        <div>
-          <app-movie-card></app-movie-card>
-        </div>
-      </div>
-      <div class="col-sm-12 col-md-6 col-lg-3">
-        <div>
-          <app-movie-card></app-movie-card>
-        </div>
-      </div>
-      <div class="col-sm-12 col-md-6 col-lg-3">
-        <div>
-          <app-movie-card></app-movie-card>
-        </div>
-      </div>
-      <div class="col-sm-12 col-md-6 col-lg-3">
-        <div>
-          <app-movie-card></app-movie-card>
-        </div>
-      </div>
-      <div class="col-sm-12 col-md-6 col-lg-3">
-        <div>
-          <app-movie-card></app-movie-card>
-        </div>
-      </div>
-      <div class="col-sm-12 col-md-6 col-lg-3">
-        <div>
-          <app-movie-card></app-movie-card>
-        </div>
-      </div>
-      <div class="col-sm-12 col-md-6 col-lg-3">
-        <div>
-          <app-movie-card></app-movie-card>
-        </div>
-      </div>
-      <div class="col-sm-12 col-md-6 col-lg-3">
-        <div>
-          <app-movie-card></app-movie-card>
-        </div>
-      </div>
-      <div class="col-sm-12 col-md-6 col-lg-3">
-        <div>
-          <app-movie-card></app-movie-card>
-        </div>
-      </div>
-      <div class="col-sm-12 col-md-6 col-lg-3">
-        <div>
-          <app-movie-card></app-movie-card>
+          <app-movie-card [movieData]="movie"></app-movie-card>
         </div>
       </div>
     </div>

@@ -4,3 +4,12 @@
   border-radius: 50% !important;
   background-color: rgb(50, 65, 81);
 } */
+.star-empty {
+  color: rgba(219, 219, 204, 0.534);
+}
+.heart-empty {
+  color: rgba(219, 219, 204, 0.708);
+}
+.card-body h5 {
+  height: 2.5rem;
+}
