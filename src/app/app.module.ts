@@ -10,7 +10,11 @@ import { MoviesListComponent } from './components/movies-list/movies-list.compon
 import { MovieCardComponent } from './components/movie-card/movie-card.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { MovieDetailsComponent } from './components/movie-details/movie-details.component'
+import { HttpClientModule } from "@angular/common/http";
+import { MovieDetailsComponent } from './components/movie-details/movie-details.component';
+import { NotFoundComponent } from './components/not-found/not-found.component'
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +22,8 @@ import { MovieDetailsComponent } from './components/movie-details/movie-details.
     MovieCardComponent,
     NavbarComponent,
     FooterComponent,
-    MovieDetailsComponent
+    MovieDetailsComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
