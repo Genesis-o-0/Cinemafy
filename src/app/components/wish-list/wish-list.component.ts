@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Movie } from 'src/app/interfaces/movie';
+import { MovieDetails } from 'src/app/interfaces/movie';
 import { WatchListService } from 'src/app/services/watch-list.service';
 
 @Component({
@@ -8,7 +8,7 @@ import { WatchListService } from 'src/app/services/watch-list.service';
   styleUrls: ['./wish-list.component.css']
 })
 export class WishListComponent {
-  moviesSet!: Map<number, Movie>;
+  moviesSet!: Map<number, MovieDetails>;
   constructor(private watchListService: WatchListService) { }
   ngOnInit(): void {
     // console.log(this.movieData);

@@ -13,7 +13,7 @@
   margin-top: 10px;
   margin-bottom: 10px;
   margin-right: 40px;
-  max-width: 15%;
+  max-width: 12%;
   max-height: 250px;
 }
 
@@ -63,6 +63,12 @@ hr {
 .movie-rate {
   margin-right: 0px;
   max-width: 20%;
+}
+.recommend-card {
+width: 100%;
+object-fit: cover;
+  aspect-ratio: auto 384 / 577;
+  height: 577px;
 }
 
 @media (max-width: 426px) {
