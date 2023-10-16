@@ -1,8 +1,6 @@
 import { Component, Input } from '@angular/core';
-
 import { faHeart } from "@fortawesome/free-solid-svg-icons"
 import { faStar } from "@fortawesome/free-solid-svg-icons"
-import { Movie } from 'src/app/interfaces/movie';
 import { WatchListService } from 'src/app/services/watch-list.service';
 import { MovieDetails } from 'src/app/interfaces/movie';
 
@@ -18,7 +16,7 @@ export class WishListCardComponent {
   faStar = faStar;
   @Input() movie!: MovieDetails;
   imgBaseUrl = 'https://image.tmdb.org/t/p/w500/';
-  moviesSet!: Map<number,Movie>;
+  moviesSet!: Map<number,MovieDetails>;
   favorite!: boolean;
   constructor(private watchListService: WatchListService){}
   ngOnInit() {

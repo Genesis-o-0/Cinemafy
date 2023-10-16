@@ -9,7 +9,7 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root',
 })
 export class GetMoviesService {
-  private paginationNumber = new BehaviorSubject<number>(1)
+  private paginationNumber = new BehaviorSubject<number>(1);
   private arrOfSearchedMovies = new BehaviorSubject<Array<MovieDetails>>([]);
 
   // arrOfSearchedMovies: Movie[] = []
@@ -21,13 +21,13 @@ export class GetMoviesService {
   // ********************
   getPaginationNumber() {
     // console.log(this.paginationNumber.value);
-    this.paginationNumber.next(this.paginationNumber.value)
-    return this.paginationNumber.asObservable()
+    this.paginationNumber.next(this.paginationNumber.value);
+    return this.paginationNumber.asObservable();
   }
   setPaginationNumber(pagNumber: number) {
     // console.log(pagNumber);
 
-    this.paginationNumber.next(pagNumber)
+    this.paginationNumber.next(pagNumber);
   }
   // *****************
   getArrOfSearchedMovies() {
@@ -70,14 +70,16 @@ export class GetMoviesService {
   // get Movies pages for Pagination
   // https://api.themoviedb.org/3/movie/popular?api_key={api_key}&page=4
   getMoviesPagination(pageNumber: any) {
-    return this.http.get<ApiResponse>(`https://api.themoviedb.org/3/movie/popular`,
+    return this.http.get<ApiResponse>(
+      `https://api.themoviedb.org/3/movie/popular`,
       {
         params: {
           api_key: '0baaacf727870157b7b93c6e641df649',
-          page: pageNumber
-        }
-      })
-
+          page: pageNumber,
+        },
+      }
+    );
+  }
   // Get recommendation based on a movie
   getRecommendations(movieId: string) {
     return this.http.get<ApiResponse>(
@@ -88,6 +90,5 @@ export class GetMoviesService {
         },
       }
     );
-
   }
 }
