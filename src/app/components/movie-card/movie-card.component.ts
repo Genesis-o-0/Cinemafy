@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { faHeart } from "@fortawesome/free-solid-svg-icons"
 import { faStar } from "@fortawesome/free-solid-svg-icons"
-import { Movie } from 'src/app/interfaces/movie';
+import { MovieDetails } from 'src/app/interfaces/movie';
 
 @Component({
   selector: 'app-movie-card',
@@ -13,7 +13,7 @@ export class MovieCardComponent {
   faHeart = faHeart
   faStar = faStar
   // Properties
-  @Input() movieData !: Movie
+  @Input() movieData !: MovieDetails
   ngOnInit(): void {
     // console.log(this.movieData);
   }

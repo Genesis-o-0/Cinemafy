@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { faHeart } from "@fortawesome/free-regular-svg-icons"
 import { faStar } from "@fortawesome/free-solid-svg-icons"
-import { Movie } from 'src/app/interfaces/movie';
+import { MovieDetails } from 'src/app/interfaces/movie';
 import { GetMoviesService } from 'src/app/services/get-movies.service';
 @Component({
   selector: 'app-movies-list',
@@ -14,7 +14,7 @@ export class MoviesListComponent {
   faHeart = faHeart
   faStar = faStar
   // Properties
-  arrOfMoviesList: Movie[]
+  arrOfMoviesList: MovieDetails[]
   searchInputValue: string = ""
   constructor(private movieList: GetMoviesService, private router: Router) {
     this.arrOfMoviesList = []
