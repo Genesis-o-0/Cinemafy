@@ -30,8 +30,9 @@
       <p class="card-text mb-0 text-muted">
         {{ movieData.release_date | date }}
       </p>
-      <button title="fav" class="btn rounded-circle">
-        <fa-icon class="fs-4 heart-empty" [icon]="faHeart"></fa-icon>
+      <button title="fav" class="btn rounded-circle" (click)="addToWatchList()">
+        <fa-icon *ngIf="!favorite" class="fs-4 heart-empty" [icon]="faHeart"></fa-icon>
+        <fa-icon *ngIf="favorite" class="fs-4" [icon]="faHeart"></fa-icon>
       </button>
     </div>
   </div>
