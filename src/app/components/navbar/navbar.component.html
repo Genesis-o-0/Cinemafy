@@ -16,12 +16,9 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item">
-          <a
-            type="button"
-            class="btn fw-medium lead text-black d-flex align-items-center"
-          >
+          <a type="button" class="btn fw-medium lead text-black d-flex align-items-center" [routerLink]="['/wishlist']">
             <fa-icon class="fs-4 me-2 heart-icon" [icon]="faHeart"></fa-icon>
-            Watchlist <span class="ms-1 badge bg-dark">0</span>
+            Watchlist <span class="ms-1 badge bg-dark">{{moviesSet.size}}</span>
           </a>
         </li>
       </ul>
