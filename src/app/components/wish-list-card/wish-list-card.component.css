@@ -21,5 +21,8 @@
 
 .movie img{
 border-radius: 27px;
+}
 
+.details h2{
+    max-height: 8rem;
 }
