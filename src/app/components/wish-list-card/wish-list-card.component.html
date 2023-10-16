@@ -1,0 +1,14 @@
+<div class="movie px-1 py-2 d-flex flex-column flex-sm-row text-center text-sm-start gap-3 align-items-center">
+    <img src="../../../assets/images/placeholder.png" alt="">
+    <div class="details">
+        <h2 class="fw-600">Movie title</h2>
+        <h6 class="movie-date fw-400">Sep 25, 2017</h6>
+        <div class="my-2">
+            <fa-icon [icon]="faStar" *ngFor="let star of [1, 2, 3, 4, 5]" class="text-dark rounded-circle fs-5 me-2"></fa-icon>
+        </div>
+        <p class="desc">
+            Natasha Romanoff, also known as Black Widow, confronts the darker parts of her ledger when a
+            dangerous conspiracy with ties to her past arises. Pursued by....
+        </p>
+    </div>
+</div>

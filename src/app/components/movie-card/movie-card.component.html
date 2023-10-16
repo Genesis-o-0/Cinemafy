@@ -1,7 +1,19 @@
 <div class="card border-0">
-  <a class="" [routerLink]="['movie-details', movieData.id]">
+  <a
+    *ngIf="movieData.poster_path"
+    [routerLink]="['movie-details', movieData.id]"
+  >
     <img
+      style="height: 459px"
       src="https://image.tmdb.org/t/p/w500/{{ movieData.poster_path }}"
+      class="card-img-top rounded-3"
+      alt="movie-img"
+    />
+  </a>
+  <a *ngIf="!movieData.poster_path">
+    <img
+      style="height: 459px; object-fit: cover"
+      src="https://tse3.mm.bing.net/th?id=OIP.AC9frN1qFnn-I2JCycN8fwHaEK&pid=Api&P=0&h=220"
       class="card-img-top rounded-3"
       alt="movie-img"
     />
@@ -12,15 +24,15 @@
     <span class="text-light lead">75 <sup>%</sup></span>
   </div> -->
   <div class="card-body">
-    <h5 class="card-title fw-bold">
+    <h4 style="height: 3.7rem; overflow: hidden" class="card-title fw-bold">
       {{ movieData.title }}
-    </h5>
-    <div class="pt-2">
+    </h4>
+    <div class="pt-2 mt-3">
       <fa-icon
         [icon]="faStar"
         *ngFor="let star of [1, 2, 3, 4, 5]"
         [ngClass]="{
-          'text-warning': movieData && movieData.vote_average / 2 > star,
+          'text-warning': movieData && movieData.vote_average / 2 >= star,
           'star-empty': movieData && movieData.vote_average / 2 < star
         }"
         class="rounded-circle me-2 fs-5"
