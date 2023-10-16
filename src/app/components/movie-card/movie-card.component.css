@@ -5,6 +5,7 @@
   background-color: rgb(50, 65, 81);
 } */
 
-.card-body h5 {
-  height: 2.5rem;
-}
+/* .card-body h5 {
+  height: 3rem;
+  overflow: hidden;
+} */
