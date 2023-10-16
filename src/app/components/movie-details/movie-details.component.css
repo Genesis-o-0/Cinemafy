@@ -1,12 +1,11 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
-* {
-  font-family: "Inter", sans-serif;
-}
 .date {
   font-size: 3px !important;
 }
 .checked {
   color: yellow;
+}
+.description {
+  text-align: justify;
 }
 
 .circular-chart {
@@ -64,4 +63,11 @@ hr {
 .movie-rate {
   margin-right: 0px;
   max-width: 20%;
+}
+
+@media (max-width: 426px) {
+  .movie-rate {
+    margin-right: 0px;
+    max-width: 15%;
+  }
 }
