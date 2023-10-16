@@ -8,14 +8,16 @@ import { MovieCardComponent } from './components/movie-card/movie-card.component
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FooterComponent } from './components/footer/footer.component';
-import { HttpClientModule } from "@angular/common/http"
+import { HttpClientModule } from "@angular/common/http";
+import { MovieDetailsComponent } from './components/movie-details/movie-details.component'
 @NgModule({
   declarations: [
     AppComponent,
     MoviesListComponent,
     MovieCardComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    MovieDetailsComponent
   ],
   imports: [
     BrowserModule,
