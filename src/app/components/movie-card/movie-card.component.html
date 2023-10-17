@@ -1,12 +1,13 @@
 <div class="card border-0">
   <a
+    class="onhover-container rounded-3 before-class"
     *ngIf="movieData.poster_path"
     [routerLink]="['/movie-details', movieData.id]"
   >
     <img
       style="height: 459px"
       src="https://image.tmdb.org/t/p/w500/{{ movieData.poster_path }}"
-      class="card-img-top rounded-3"
+      class="card-img-top rounded-3 onhover"
       alt="movie-img"
     />
   </a>

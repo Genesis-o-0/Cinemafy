@@ -26,7 +26,11 @@ export class MoviesListComponent {
   ngOnInit(): void {
     this.movieList
       .getMoviesList()
-      .subscribe((data) => (this.arrOfMoviesList = data.results));
+      .subscribe((data) => {
+        console.log(data.results);
+
+        this.arrOfMoviesList = data.results
+      });
   }
 
   searchFunc() {
