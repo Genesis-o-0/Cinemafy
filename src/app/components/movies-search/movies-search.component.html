@@ -1,6 +1,6 @@
 <section class="movie-list py-5 height-container">
   <div class="container">
-    <div class="row p-5 bg-color text-center">
+    <div class="row p-5 text-center">
       <h1 class="display-5 fw-medium mb-5">Welcome to Search</h1>
       <p class="fw-medium">
         Millions of movies, TV shows and people to discover. Explore now.
@@ -18,7 +18,7 @@
           <div class="col-sm-12 col-md-3 col-lg-1">
             <button
               (click)="searchMovie()"
-              class="btn rounded px-4 py-2 bg-yellow"
+              class="btn rounded px-4 py-2 bg-secondary text-light"
             >
               Search
             </button>
@@ -46,7 +46,12 @@
       <div class="flex-container">
         <div class="text-center">
           <h3 class="fadeIn pb-3">Search not found</h3>
-          <button type="button" name="button" class="btn btn-dark" [routerLink]="['/']">
+          <button
+            type="button"
+            name="button"
+            class="btn btn-dark"
+            [routerLink]="['/']"
+          >
             Return To Home
           </button>
         </div>

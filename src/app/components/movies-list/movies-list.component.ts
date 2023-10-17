@@ -1,3 +1,4 @@
+import { ViewportScroller } from '@angular/common';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { faHeart } from '@fortawesome/free-regular-svg-icons';
@@ -20,8 +21,12 @@ export class MoviesListComponent {
   pageNumber!: number;
   arrOfMoviesList: MovieDetails[];
   searchInputValue: string = '';
-  constructor(private movieList: GetMoviesService, private router: Router) {
+  constructor(private movieList: GetMoviesService, private router: Router, private scroll: ViewportScroller) {
     this.arrOfMoviesList = [];
+  }
+  // Scroll To Top Button
+  scrollToTop() {
+    this.scroll.scrollToPosition([0, 0]);
   }
   ngOnInit(): void {
     this.movieList

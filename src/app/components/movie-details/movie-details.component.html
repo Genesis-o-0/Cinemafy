@@ -1,4 +1,4 @@
-<div class="container pt-5" *ngIf="movie">
+<div class="container padding-cont" *ngIf="movie">
   <div class="row flex-row flex-lg-row">
     <div class="movie-img col-12 col-lg-4">
       <a [href]="'https://www.imdb.com/title/' + movie.imdb_id" target="_blank"
@@ -33,18 +33,18 @@
           >{{ movie.vote_count }}</span
         >
       </div>
-      <p class="description pt-3 fs-4">
+      <p class="description pt-4 fs-4 pb-4">
         {{ movie.overview }}
       </p>
-      <div class="genre d-flex mb-1 mb-md-0">
+      <div class="genre d-flex mb-1 mb-md-0 pb-2">
         <span
-          class="badge rounded-pill text-bg-warning me-3"
+          class="badge rounded-pill text-bg-warning me-3 py-2 px-3"
           *ngFor="let genre of movie.genres"
           >{{ genre.name }}</span
         >
       </div>
       <div class="duration-language d-flex pt-3 flex-column flex-md-row">
-        <div class="duration me-5 mb-1 mb-md-0">
+        <div class="duration me-5 mb-3 mb-md-0">
           <h6>
             <span class="fw-bold">Duration: </span
             ><span class="small"> {{ movie.runtime }} Min.</span>
@@ -83,15 +83,18 @@
     <h2 class="py-3">Recommendations</h2>
     <div class="recommendation row row-cols-1 row-cols-md-2 row-cols-lg-4">
       <div class="col mb-4" *ngFor="let movie of recommendations">
-        <div class="card">
-          <a [routerLink]="['/movie-details', movie.id]" target="_blank"
+        <div class="card border-0 rounded-3">
+          <a
+            class="onhover-container rounded-3"
+            [routerLink]="['/movie-details', movie.id]"
+            target="_blank"
             ><img
               [src]="
                 movie.poster_path
                   ? 'https://image.tmdb.org/t/p/w500/' + movie.poster_path
                   : '../../assets/images/No-Image-Placeholder.svg_469x577.png'
               "
-              class="card-img-top recommend-card"
+              class="card-img-top recommend-card card-height onhover rounded-3"
               alt="..."
           /></a>
           <div class="card-body">
