@@ -41,9 +41,16 @@
     </div>
     <div
       *ngIf="arrOfSearchedMoviesFromService.length == 0"
-      class="row py-5 g-4 text-center"
+      class="row text-center"
     >
-      <h1>Hello</h1>
+      <div class="flex-container">
+        <div class="text-center">
+          <h3 class="fadeIn pb-3">Search not found</h3>
+          <button type="button" name="button" class="btn btn-dark" [routerLink]="['/']">
+            Return To Home
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 </section>

@@ -11,6 +11,7 @@ import { MovieDetails } from 'src/app/interfaces/movie-details';
 export class WishListComponent {
   moviesSet!: Map<number, MovieDetails>;
   constructor(private watchListService: WatchListService, private router: Router) { }
+
   ngOnInit(): void {
     // console.log(this.movieData);
     this.watchListService.getMoviesArray().subscribe((moviesSet) => this.moviesSet = moviesSet);

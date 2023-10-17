@@ -4,10 +4,11 @@ import { faStar } from "@fortawesome/free-solid-svg-icons"
 import { MovieDetails } from 'src/app/interfaces/movie-details';
 import { WatchListService } from 'src/app/services/watch-list.service';
 
+
 @Component({
   selector: 'app-wish-list-card',
   templateUrl: './wish-list-card.component.html',
-  styleUrls: ['./wish-list-card.component.css']
+  styleUrls: ['./wish-list-card.component.css'],
 })
 export class WishListCardComponent {
   // Fontawesome
@@ -18,7 +19,7 @@ export class WishListCardComponent {
   moviesSet!: Map<number,MovieDetails>;
   favorite!: boolean;
   constructor(private watchListService: WatchListService){}
-  ngOnInit(){
+  ngOnInit() {
     console.log(this.movie);
     this.watchListService.getMoviesArray().subscribe((moviesSet) => this.moviesSet = moviesSet);
     this.favorite = this.moviesSet.has(this.movie.id);

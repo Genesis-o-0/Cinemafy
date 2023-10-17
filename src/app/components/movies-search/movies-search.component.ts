@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Movie } from 'src/app/interfaces/movie';
+import { MovieDetails } from 'src/app/interfaces/movie';
 import { GetMoviesService } from 'src/app/services/get-movies.service';
 
 @Component({
@@ -8,7 +8,7 @@ import { GetMoviesService } from 'src/app/services/get-movies.service';
   styleUrls: ['./movies-search.component.css']
 })
 export class MoviesSearchComponent {
-  arrOfSearchedMoviesFromService!: Movie[]
+  arrOfSearchedMoviesFromService!: MovieDetails[]
   searchInputVal: string = ""
   constructor(private movieList: GetMoviesService) { }
   ngOnInit(): void {

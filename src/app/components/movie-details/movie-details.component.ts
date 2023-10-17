@@ -19,6 +19,7 @@ export class MovieDetailsComponent {
   totalRate!: string;
   movieId!: string;
   movie!: MovieDetails;
+  recommendations!: MovieDetails[];
   sharedURL: string = 'https://image.tmdb.org/t/p/w500';
   moviesSet!: Map<number, MovieDetails>;
   favorite!: boolean;
@@ -43,6 +44,13 @@ export class MovieDetailsComponent {
       this.watchListService.getMoviesArray().subscribe((moviesSet) => this.moviesSet = moviesSet);
       this.favorite = this.moviesSet.has(this.movie.id);
     });
+
+    this.moviesListService
+    .getRecommendations(this.movieId)
+    .subscribe((rec) => {
+      this.recommendations = rec.results;
+      console.log(this.recommendations);
+    });
   }
 
   addToWatchList() {
@@ -53,5 +61,9 @@ export class MovieDetailsComponent {
       this.moviesSet.set(this.movie.id, this.movie);
       this.favorite = true;
     }
+
+  }
+  get dashArrayValue(): string {
+    return `${this.movie.vote_average * 10}, 100`;
   }
 }
