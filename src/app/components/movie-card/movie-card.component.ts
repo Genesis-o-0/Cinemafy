@@ -3,6 +3,7 @@ import { Component, Input } from '@angular/core';
 import { faHeart } from "@fortawesome/free-solid-svg-icons"
 import { faStar } from "@fortawesome/free-solid-svg-icons"
 import { Movie } from 'src/app/interfaces/movie';
+import { MovieDetails } from 'src/app/interfaces/movie-details';
 
 @Component({
   selector: 'app-movie-card',
@@ -14,8 +15,8 @@ export class MovieCardComponent {
   faHeart = faHeart
   faStar = faStar
   // Properties
-  @Input() movieData !: Movie
-  moviesSet!: Map<number,Movie>;
+  @Input() movieData !: MovieDetails
+  moviesSet!: Map<number,MovieDetails>;
   favorite!: boolean;
   constructor(private watchListService: WatchListService){}
 

@@ -9,7 +9,13 @@
       /></a>
     </div>
     <div class="movie-info ps-4 pt-3 col-12 col-lg-8">
-      <h3 class="fw-bold fs-3">{{ movie.original_title }}</h3>
+      <div class="d-flex justify-content-between">
+        <h3 class="fw-bold fs-3">{{ movie.original_title }}</h3>
+        <button title="fav" class="btn rounded-circle" (click)="addToWatchList()">
+          <fa-icon *ngIf="!favorite" class="fs-4 heart-empty" [icon]="faHeart"></fa-icon>
+          <fa-icon *ngIf="favorite" class="fs-4 text-warning" [icon]="faHeart"></fa-icon>
+        </button>
+      </div>
       <p class="text-body-tertiary date">{{ movie.release_date }}</p>
       <div class="rating d-flex align-items-center justify-content-start">
         <svg viewBox="0 0 36 36" class="circular-chart orange">
