@@ -16,3 +16,29 @@ a {
 .heart-empty {
   color: rgba(219, 219, 204, 0.708);
 }
+
+body {
+  /* background-color: #040e1a;
+  background-color: #122430;
+  background-color: #031526; */
+  background-color: #2c2a2a06;
+}
+.card {
+  background-color: transparent;
+}
+nav {
+  background-color: #202020 !important;
+}
+footer {
+  background-color: #202020 !important;
+}
+/* p,
+span,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: white !important;
+} */

@@ -17,6 +17,7 @@ import { WishListCardComponent } from './components/wish-list-card/wish-list-car
 import { MoviesSearchComponent } from './components/movies-search/movies-search.component'
 import { FormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { CarouselComponent } from './components/carousel/carousel.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
     WishListComponent,
     NotFoundComponent,
     WishListCardComponent,
-    MoviesSearchComponent
+    MoviesSearchComponent,
+    CarouselComponent
   ],
   imports: [
     BrowserModule,

@@ -1,12 +1,13 @@
-<div class="card border-0">
+<div class="card border-0 rounded-3">
   <a
+    class="onhover-container rounded-3 before-class"
     *ngIf="movieData.poster_path"
     [routerLink]="['/movie-details', movieData.id]"
   >
     <img
       style="height: 459px"
       src="https://image.tmdb.org/t/p/w500/{{ movieData.poster_path }}"
-      class="card-img-top rounded-3"
+      class="card-img-top rounded-3 onhover"
       alt="movie-img"
     />
   </a>
@@ -39,13 +40,13 @@
                         a 15.9155 15.9155 0 0 1 0 -31.831"
           />
           <text x="18" y="20.35" class="percentage">
-            {{ movieData.vote_average * 10 }}%
+            {{ movieData.vote_average * 10 | number : "1.0-0" }}%
           </text>
         </svg>
       </div>
     </div>
     <div class="d-flex justify-content-between align-items-center">
-      <p class="card-text mb-0 text-muted">
+      <p class="card-text mb-0">
         {{ movieData.release_date | date }}
       </p>
       <button title="fav" class="btn rounded-circle" (click)="addToWatchList()">
