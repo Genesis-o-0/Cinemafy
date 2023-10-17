@@ -9,12 +9,25 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root',
 })
 export class GetMoviesService {
+  private paginationNumber = new BehaviorSubject<number>(1);
   private arrOfSearchedMovies = new BehaviorSubject<Array<MovieDetails>>([]);
+
   // arrOfSearchedMovies: Movie[] = []
   baseUrl: string;
 
   constructor(private http: HttpClient) {
     this.baseUrl = 'https://api.themoviedb.org/3/movie/popular';
+  }
+  // ********************
+  getPaginationNumber() {
+    // console.log(this.paginationNumber.value);
+    this.paginationNumber.next(this.paginationNumber.value);
+    return this.paginationNumber.asObservable();
+  }
+  setPaginationNumber(pagNumber: number) {
+    // console.log(pagNumber);
+
+    this.paginationNumber.next(pagNumber);
   }
   // *****************
   getArrOfSearchedMovies() {
@@ -24,10 +37,11 @@ export class GetMoviesService {
     this.arrOfSearchedMovies.next(newArr);
   }
 
-  getMoviesList() {
+  getMoviesList(page: number = 1) {
     return this.http.get<ApiResponse>(this.baseUrl, {
       params: {
         api_key: '0baaacf727870157b7b93c6e641df649',
+        page: page,
       },
     });
   }
@@ -54,6 +68,7 @@ export class GetMoviesService {
       }
     );
   }
+
   // Get recommendation based on a movie
   getRecommendations(movieId: string) {
     return this.http.get<ApiResponse>(
