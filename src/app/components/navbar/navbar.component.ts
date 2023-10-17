@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { faHeart } from '@fortawesome/free-solid-svg-icons';
-import { MovieDetails } from 'src/app/interfaces/movie';
+import { faHeart } from "@fortawesome/free-solid-svg-icons"
+import { MovieDetails } from 'src/app/interfaces/movie-details';
 import { WatchListService } from 'src/app/services/watch-list.service';
 
 @Component({
@@ -10,12 +10,10 @@ import { WatchListService } from 'src/app/services/watch-list.service';
 })
 export class NavbarComponent {
   // Fontawesome Icons
-  faHeart = faHeart;
-  moviesSet!: Map<number, MovieDetails>;
-  constructor(private watchListService: WatchListService) {}
-  ngOnInit() {
-    this.watchListService
-      .getMoviesArray()
-      .subscribe((moviesSet) => (this.moviesSet = moviesSet));
+  faHeart = faHeart
+  moviesSet!: Map<number,MovieDetails>;
+  constructor(private watchListService: WatchListService){}
+  ngOnInit(){
+    this.watchListService.getMoviesArray().subscribe((moviesSet) => this.moviesSet = moviesSet);
   }
 }
