@@ -4,21 +4,22 @@
         <img width="200px" class="rounded-4" [src]="imgBaseUrl + movie.poster_path" alt="">
     </div>
     <div class="details">
-        <div class="d-flex justify-content-between">
+        <div class="d-flex justify-content-center justify-content-md-between">
             <h2 class="fw-semibold overflow-hidden">{{movie.title}}</h2>
             <button title="fav" class="btn rounded-circle" (click)="addToWatchList()">
                 <fa-icon *ngIf="!favorite" class="fs-4 heart-empty" [icon]="faHeart"></fa-icon>
-                <fa-icon *ngIf="favorite" class="fs-4" [icon]="faHeart"></fa-icon>
+                <fa-icon *ngIf="favorite" class="fs-4 text-warning" [icon]="faHeart"></fa-icon>
             </button>
         </div>
-        <h6 class="movie-date fw-400">Sep 25, 2017</h6>
+        <h6 class="movie-date fw-400">{{movie.release_date | date}}</h6>
         <div class="my-2">
-            <fa-icon [icon]="faStar" *ngFor="let star of [1, 2, 3, 4, 5]" class="text-dark rounded-circle fs-5 me-2">
-            </fa-icon>
+            <span *ngFor="let star of [1, 2, 3, 4, 5]">
+                <fa-icon [icon]="faStar"  *ngIf="star < movie.vote_average/2" class="text-warning rounded-circle fs-5 me-2">
+                </fa-icon>
+                <fa-icon [icon]="faStar"  *ngIf="movie.vote_average/2 < star" class="star-empty rounded-circle fs-5 me-2">
+                </fa-icon>
+            </span>
         </div>
-        <p class="desc">
-            Natasha Romanoff, also known as Black Widow, confronts the darker parts of her ledger when a
-            dangerous conspiracy with ties to her past arises. Pursued by....
-        </p>
+        <p class="desc">{{movie.overview}}</p>
     </div>
 </div>

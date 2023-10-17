@@ -1,8 +1,8 @@
 import { Component, Input } from '@angular/core';
 import { faHeart } from "@fortawesome/free-solid-svg-icons"
 import { faStar } from "@fortawesome/free-solid-svg-icons"
+import { MovieDetails } from 'src/app/interfaces/movie-details';
 import { WatchListService } from 'src/app/services/watch-list.service';
-import { MovieDetails } from 'src/app/interfaces/movie';
 
 
 @Component({
@@ -14,7 +14,7 @@ export class WishListCardComponent {
   // Fontawesome
   faHeart = faHeart;
   faStar = faStar;
-  @Input() movie!: MovieDetails;
+  @Input() movie !: MovieDetails;
   imgBaseUrl = 'https://image.tmdb.org/t/p/w500/';
   moviesSet!: Map<number,MovieDetails>;
   favorite!: boolean;
@@ -23,6 +23,7 @@ export class WishListCardComponent {
     console.log(this.movie);
     this.watchListService.getMoviesArray().subscribe((moviesSet) => this.moviesSet = moviesSet);
     this.favorite = this.moviesSet.has(this.movie.id);
+    console.log(this.movie);
   }
   addToWatchList(){    
     if(this.moviesSet.has(this.movie.id)){

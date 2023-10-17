@@ -23,7 +23,6 @@ export class NavbarComponent {
     this.movieService.getMoviesList().subscribe((data) => {
       console.log(data.page);
       this.pageNumber
-
     })
   }
 }

@@ -1,5 +1,5 @@
 .movie h2 {
-    font-size: 48px;
+    font-size: 39px;
     line-height: 58px;
     letter-spacing: 0em;
 }
@@ -26,3 +26,12 @@ border-radius: 27px;
 .details h2{
     max-height: 8rem;
 }
+
+.desc{
+    max-height: 6rem;
+    overflow: hidden;
+}
+
+.star-empty {
+    color: rgba(219, 219, 204, 0.534)!important;
+  }
