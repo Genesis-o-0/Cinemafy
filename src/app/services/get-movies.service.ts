@@ -37,10 +37,11 @@ export class GetMoviesService {
     this.arrOfSearchedMovies.next(newArr);
   }
 
-  getMoviesList() {
+  getMoviesList(page: number = 1) {
     return this.http.get<ApiResponse>(this.baseUrl, {
       params: {
         api_key: '0baaacf727870157b7b93c6e641df649',
+        page: page,
       },
     });
   }
