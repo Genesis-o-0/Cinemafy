@@ -3,7 +3,7 @@
     <div *ngIf="!moviesSet.size" class="d-flex flex-column gap-3 py-3 justify-content-center align-items-center" >
         <img src="../../../assets/images/watch-list-empty.png" alt="">
         <h5>No Movies in watch list.</h5>
-        <button type="button" class="btn btn-warning" (click)="navigateToHome()">back to home</button>
+        <button type="button" class="btn btn-dark" (click)="navigateToHome()">back to home</button>
     </div>
     <div *ngIf="moviesSet.size" class="row row-cols-1 row-cols-xl-2 g-4">
         <div class="col" *ngFor="let movie of moviesSet.values()">

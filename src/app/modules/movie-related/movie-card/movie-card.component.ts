@@ -1,7 +1,7 @@
-import { WatchListService } from './../../services/watch-list.service';
+import { WatchListService } from '../../../services/watch-list.service';
 import { Component, Input } from '@angular/core';
-import { faHeart } from "@fortawesome/free-solid-svg-icons"
-import { faStar } from "@fortawesome/free-solid-svg-icons"
+import { faHeart } from '@fortawesome/free-solid-svg-icons';
+import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { MovieDetails } from 'src/app/interfaces/movie-details';
 
 @Component({
@@ -14,8 +14,8 @@ export class MovieCardComponent {
   faHeart = faHeart;
   faStar = faStar;
   // Properties
-  @Input() movieData !: MovieDetails
-  moviesSet!: Map<number,MovieDetails>;
+  @Input() movieData!: MovieDetails;
+  moviesSet!: Map<number, MovieDetails>;
   favorite!: boolean;
   constructor(private watchListService: WatchListService) {}
 
