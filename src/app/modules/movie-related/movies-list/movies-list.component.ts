@@ -32,7 +32,7 @@ export class MoviesListComponent {
     this.movieList
       .getMoviesList()
       .subscribe((data) => {
-        console.log(data.results);
+        // console.log(data.results);
 
         this.arrOfMoviesList = data.results
       });
@@ -54,10 +54,4 @@ export class MoviesListComponent {
       .getMoviesList(this.page)
       .subscribe((data) => (this.arrOfMoviesList = data.results));
   }
-  // onTableSizeChange(event: any): void {
-  //   this.tableSize = event.target.value;
-  //   this.page = 1;
-  //   this.movieList.getMoviesList(this.page).subscribe((data) => console.log(data));
-
-  // }
 }

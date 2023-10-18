@@ -31,16 +31,16 @@ export class MovieDetailsComponent {
     private watchListService: WatchListService
   ) {
     this.movieId = this.activatedRoute.snapshot.params?.['id'];
-    console.log(this.movieId);
+    // console.log(this.movieId);
   }
   ngOnInit() {
     this.moviesListService.getMovieById(this.movieId).subscribe((data) => {
       this.movie = data;
-      console.log(this.movie);
+      // console.log(this.movie);
 
       this.totalRate = `${Math.floor(this.movie.vote_average * 10)}, 100`;
       this.actualRate = Math.floor(this.movie.vote_average * 10);
-      console.log(this.totalRate);
+      // console.log(this.totalRate);
       this.watchListService
         .getMoviesArray()
         .subscribe((moviesSet) => (this.moviesSet = moviesSet));
@@ -49,7 +49,7 @@ export class MovieDetailsComponent {
 
     this.moviesListService.getRecommendations(this.movieId).subscribe((rec) => {
       this.recommendations = rec.results;
-      console.log(this.recommendations);
+      // console.log(this.recommendations);
     });
   }
 

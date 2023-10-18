@@ -16,20 +16,20 @@ export class WishListCardComponent {
   faStar = faStar;
   @Input() movie !: MovieDetails;
   imgBaseUrl = 'https://image.tmdb.org/t/p/w500/';
-  moviesSet!: Map<number,MovieDetails>;
+  moviesSet!: Map<number, MovieDetails>;
   favorite!: boolean;
-  constructor(private watchListService: WatchListService){}
+  constructor(private watchListService: WatchListService) { }
   ngOnInit() {
-    console.log(this.movie);
+    // console.log(this.movie);
     this.watchListService.getMoviesArray().subscribe((moviesSet) => this.moviesSet = moviesSet);
     this.favorite = this.moviesSet.has(this.movie.id);
-    console.log(this.movie);
+    // console.log(this.movie);
   }
-  addToWatchList(){    
-    if(this.moviesSet.has(this.movie.id)){
+  addToWatchList() {
+    if (this.moviesSet.has(this.movie.id)) {
       this.moviesSet.delete(this.movie.id);
       this.favorite = false;
-    }else{
+    } else {
       this.moviesSet.set(this.movie.id, this.movie);
       this.favorite = true;
     }

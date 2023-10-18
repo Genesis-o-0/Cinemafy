@@ -21,7 +21,7 @@ export class NavbarComponent {
       .subscribe((moviesSet) => (this.moviesSet = moviesSet));
 
     this.movieService.getMoviesList().subscribe((data) => {
-      console.log(data.page);
+      // console.log(data.page);
       this.pageNumber
     })
   }
