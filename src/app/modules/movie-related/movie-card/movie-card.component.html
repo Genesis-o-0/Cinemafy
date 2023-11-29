@@ -1,21 +1,22 @@
-<div class="card border-0 rounded-3">
+<div class="card border-0 rounded-3 h-100">
   <a
-    class="onhover-container rounded-3 before-class"
+    style="height: 75% !important"
+    class="onhover-container rounded-3 before-class h-75"
     *ngIf="movieData.poster_path"
     [routerLink]="['/movie-details', movieData.id]"
   >
+    <!-- style="height: 459px" -->
     <img
-      style="height: 459px"
       src="https://image.tmdb.org/t/p/w500/{{ movieData.poster_path }}"
-      class="card-img-top rounded-3 onhover"
+      class="card-img-top rounded-3 onhover h-100 d-block w-100 img-fluid object-fit-cover"
       alt="movie-img"
     />
   </a>
-  <a *ngIf="!movieData.poster_path">
+  <a style="height: 75% !important" *ngIf="!movieData.poster_path">
+    <!-- style="height: 459px; object-fit: cover" -->
     <img
-      style="height: 459px; object-fit: cover"
-      src="https://tse3.mm.bing.net/th?id=OIP.AC9frN1qFnn-I2JCycN8fwHaEK&pid=Api&P=0&h=220"
-      class="card-img-top rounded-3"
+      src="https://tse4.mm.bing.net/th?id=OIP.gV1cXI_SNBK_nU1yrE_hcwHaGp&pid=Api&P=0&h=220"
+      class="card-img-top rounded-3 h-100 d-block w-100 img-fluid object-fit-cover"
       alt="movie-img"
     />
   </a>
@@ -24,7 +25,9 @@
       {{ movieData.title }}
     </h4>
     <div>
-      <div class="rating d-flex align-items-center justify-content-start">
+      <div
+        class="rating d-flex align-items-center justify-content-start fs-5 fw-bold"
+      >
         <svg viewBox="0 0 36 36" class="circular-chart orange">
           <path
             class="circle-bg"
@@ -50,8 +53,16 @@
         {{ movieData.release_date | date }}
       </p>
       <button title="fav" class="btn rounded-circle" (click)="addToWatchList()">
-        <fa-icon *ngIf="!favorite" class="fs-4 heart-empty" [icon]="faHeart"></fa-icon>
-        <fa-icon *ngIf="favorite" class="fs-4 text-warning" [icon]="faHeart"></fa-icon>
+        <fa-icon
+          *ngIf="!favorite"
+          class="fs-4 heart-empty"
+          [icon]="faHeart"
+        ></fa-icon>
+        <fa-icon
+          *ngIf="favorite"
+          class="fs-4 text-warning"
+          [icon]="faHeart"
+        ></fa-icon>
       </button>
     </div>
   </div>

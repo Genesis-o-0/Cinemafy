@@ -17,10 +17,9 @@ export class MovieCardComponent {
   @Input() movieData!: MovieDetails;
   moviesSet!: Map<number, MovieDetails>;
   favorite!: boolean;
-  constructor(private watchListService: WatchListService) {}
+  constructor(private watchListService: WatchListService) { }
 
   ngOnInit(): void {
-    // console.log(this.movieData);
     this.watchListService
       .getMoviesArray()
       .subscribe((moviesSet) => (this.moviesSet = moviesSet));
@@ -35,5 +34,6 @@ export class MovieCardComponent {
       this.moviesSet.set(this.movieData.id, this.movieData);
       this.favorite = true;
     }
+    console.log(this.moviesSet);
   }
 }
